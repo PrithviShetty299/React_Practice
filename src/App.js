@@ -26,11 +26,40 @@ import RefsDemo from "./components/RefsDemo";
 import FocusInput from "./components/FocusInput";
 import FRParentInput from "./components/FRParentInput";
 import PortalDemo from "./components/PortalDemo";
+import Hero from "./components/Hero";
+import ErrorBoundary from "./components/ErrorBoundary";
+import ClickCounter from "./components/ClickCounter";
+import HoverCounter from "./components/HoverCounter";
+import User from "./components/User";
+import ClickCounterTwo from "./components/ClickCounterTwo";
+import HoverCounterTwo from "./components/HoverCounterTwo";
+import NewCounter from "./components/NewCounter";
 
 function App() {
   return (
     <div className="App">
-      <PortalDemo />
+      <NewCounter
+        render={(count, incrementCount) => (
+          <ClickCounterTwo count={count} incrementCount={incrementCount} />
+        )}
+      />
+      <NewCounter
+        render={(count, incrementCount) => (
+          <HoverCounterTwo count={count} incrementCount={incrementCount} />
+        )}
+      />
+      {/* <ClickCounterTwo />
+      <HoverCounterTwo />
+      <User render={(isLoggedIn) => (isLoggedIn ? "Prithvi" : "Guest")} /> */}
+      {/* <ClickCounter name="Prithvi" /> */}
+      {/* <HoverCounter /> */}
+      {/* <ErrorBoundary>
+        <Hero heroName="Joker" />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Hero heroName="Batman" />
+      </ErrorBoundary> */}
+      {/* <PortalDemo /> */}
       {/* <FRParentInput /> */}
       {/* <FocusInput /> */}
       {/* <RefsDemo /> */}
