@@ -7,6 +7,8 @@ class Form extends Component {
     this.state = {
       firstName: "",
       lastName: "",
+      comments: "",
+      topic: "react",
     };
   }
   //   handleNameChange = (event) => {
@@ -35,8 +37,28 @@ class Form extends Component {
     );
   };
 
+  handleCommentsChange = (event) => {
+    this.setState(
+      {
+        comments: event.target.value,
+      },
+      () => console.log(this.state.comments)
+    );
+  };
+
+  handleTopicChange = (event) => {
+    this.setState(
+      {
+        topic: event.target.value,
+      },
+      () => console.log(this.state.topic)
+    );
+  };
+
   handleSubmit = (event) => {
-    alert(`${this.state.firstName} ${this.state.lastName}`);
+    alert(
+      `${this.state.firstName} ${this.state.lastName} ${this.state.comments} ${this.state.topic}`
+    );
     event.preventDefault();
   };
   render() {
@@ -57,6 +79,21 @@ class Form extends Component {
             value={this.state.lastName}
             onChange={this.handleLastNameChange}
           />
+        </div>
+        <div>
+          <label>Comments</label>
+          <textarea
+            value={this.state.comments}
+            onChange={this.handleCommentsChange}
+          ></textarea>
+        </div>
+        <div>
+          <label>Topic</label>
+          <select value={this.state.topic} onChange={this.handleTopicChange}>
+            <option value="React">React</option>
+            <option value="Angular">Angular</option>
+            <option value="Vue">Vue</option>
+          </select>
         </div>
         <button type="submit">Submit</button>
       </form>
